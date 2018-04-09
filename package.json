@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rampagesang/portfolio.git"
+  },
+  "author": "Sangyeop Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rampagesang/portfolio/issues"
+  },
+  "homepage": "https://github.com/rampagesang/portfolio#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}
