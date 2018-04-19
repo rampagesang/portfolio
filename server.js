@@ -6,6 +6,8 @@ const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 // View engine setup
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -87,4 +89,6 @@ app.post('/send', (req, res) => {
   });
   });
 
-app.listen(3000, () => console.log('Server started... 🌐 localhost:3000'));
+  app.listen(PORT, function() {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  });
