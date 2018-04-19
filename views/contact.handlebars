@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html class="no-js">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,16 +11,14 @@
   <!-- Bootstrap and Font Awesome css-->
   <!-- we use cdn but you can also include local files located in css directory-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/font-awesome-animation.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <!-- theme stylesheet-->
-  <link rel="stylesheet" href="./index.css" id="theme-stylesheet">
+  <link rel="stylesheet" href="../public/css/style.css" id="theme-stylesheet">
 </head>
 <header>
   <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 </header>
-
 <body>
   <div class="wrapper">
     <div class="main">
@@ -65,7 +62,7 @@
               </div>
               <div class="col-md-5 col-md-offset-1">
                 <p>
-                  <img src="img/about.jpg" alt="" class="img-circle">
+                  <img src="../public/img/about.jpg" alt="" class="img-circle">
                 </p>
               </div>
             </div>
@@ -424,21 +421,21 @@
                   <div class="col-sm-4">
                     <div class="box">
                       <a href="http://vast-falls-75429.herokuapp.com/" title="Teachaid">
-                        <img src="img/portfolio-1.jpg" alt="" class="img-responsive">
+                        <img src="../public/img/portfolio-1.jpg" alt="" class="img-responsive">
                       </a>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="box">
                       <a href="https://inventsang.myportfolio.com/" title="Sang's Design">
-                        <img src="img/portfolio-2.jpg" alt="" class="img-responsive">
+                        <img src="../public/img/portfolio-2.jpg" alt="" class="img-responsive">
                       </a>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="box">
                       <a href="#" title="">
-                        <img src="img/portfolio-3.jpg" alt="" class="img-responsive">
+                        <img src="../public/img/portfolio-3.jpg" alt="" class="img-responsive">
                       </a>
                     </div>
                   </div>
@@ -447,21 +444,21 @@
                   <div class="col-sm-4">
                     <div class="box">
                       <a href="#" title="">
-                        <img src="img/portfolio-4.jpg" alt="" class="img-responsive">
+                        <img src="../public/img/portfolio-4.jpg" alt="" class="img-responsive">
                       </a>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="box">
                       <a href="#" title="">
-                        <img src="img/portfolio-5.jpg" alt="" class="img-responsive">
+                        <img src="../public/img/portfolio-5.jpg" alt="" class="img-responsive">
                       </a>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="box">
                       <a href="#" title="">
-                        <img src="img/portfolio-6.jpg" alt="" class="img-responsive">
+                        <img src="../public/img/portfolio-6.jpg" alt="" class="img-responsive">
                       </a>
                     </div>
                   </div>
@@ -480,19 +477,19 @@
                 <h2 class="heading">Contact</h2>
                 <div class="row">
                   <div class="col-md-12">
-                    <form id="contact-form" method="post" action="contact.php" class="contact-form">
+                    <form id="contact-form" method="post" action="send" class="contact-form">
                       <div class="controls">
                         <div class="row">
                           <div class="col-sm-6">
                             <div class="form-group">
-                              <label for="name">Your first name *</label>
-                              <input type="text" name="name" placeholder="Enter your first name" required="required" class="form-control">
+                                <label for="name">Your name *</label>
+                                <input type="text" name="name" placeholder="Enter your first name" required="required" class="form-control">
                             </div>
                           </div>
                           <div class="col-sm-6">
                             <div class="form-group">
-                              <label for="surname">Your last name *</label>
-                              <input type="text" name="surname" placeholder="Enter your last name" required="required" class="form-control">
+                              <label for="phone">Your phone number *</label>
+                              <input type="text" name="company" placeholder="Enter your last name" required="required" class="form-control">
                             </div>
                           </div>
                         </div>
@@ -501,7 +498,7 @@
                           <input type="email" name="email" placeholder="Enter your email" required="required" class="form-control">
                         </div>
                         <div class="form-group">
-                          <label for="surname">Your message for us *</label>
+                          <label for="surname">Your message for Sang *</label>
                           <textarea rows="4" name="message" placeholder="Enter your message" required="required" class="form-control"></textarea>
                         </div>
                         <div class="text-center">
@@ -536,7 +533,7 @@
                 <div class="row">
                   <div class="text-center">
                     <div class="col-xs-2 col-xs-offset-5">
-                      <a href="./img/SYL_dev.pdf" download>
+                      <a href="../public/img/SYL_dev.pdf" download>
                         <input type="submit" name="name" value="Download Resume" class="btn btn-primary btn-block">
                     </div>
                   </div>
@@ -562,7 +559,7 @@
   <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/onepage-scroll/1.3.1/jquery.onepage-scroll.min.js"></script>
-  <script src="./index.js"></script>
+  <script src="../public/js/index.js"></script>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
   <script>
       (function (b, o, i, l, e, r) {

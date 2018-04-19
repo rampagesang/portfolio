@@ -19,7 +19,11 @@
   },
   "homepage": "https://github.com/rampagesang/portfolio#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "nodemailer": "^4.6.4",
+    "xoauth2": "^1.2.0",
     "path": "^0.12.7"
   }
 }
