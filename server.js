@@ -83,7 +83,6 @@ app.post('/send', parseForm, csrfProtection, (req, res) => {
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
       // HERE YOU REDIRECT to /#page6
-      res.redirect('/#page6');
       res.render('contact', {msg:'Email has been sent!'});
   });
 });
