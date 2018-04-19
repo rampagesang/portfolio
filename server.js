@@ -17,7 +17,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/www.sangyeoplee.com/', (req, res) => {
+app.get('/', (req, res) => {
   res.render('contact');
 });
 
@@ -27,7 +27,6 @@ app.post('/send', (req, res) => {
     <h3>Contact Details</h3>
     <ul>  
         <li>Name: ${req.body.name}</li>
-        <li>Company: ${req.body.company}</li>
         <li>Email: ${req.body.email}</li>
         <li>Phone: ${req.body.phone}</li>
     </ul>
@@ -67,26 +66,25 @@ app.post('/send', (req, res) => {
       html: output // html body
   };
 
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, function(error, info){
-      if(error){
-          return console.log(error);
-      }
-      console.log('Message sent: ' + info.response);
-  });
-
-
-
-  // // send mail with defined transport object
-  // transporter.sendMail(mailOptions, (error, info) => {
-  //     if (error) {
+  //   // send mail with defined transport object
+  //   transporter.sendMail(mailOptions, function(error, info){
+  //     if(error){
   //         return console.log(error);
   //     }
-  //     console.log('Message sent: %s', info.messageId);   
-  //     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-  //     res.render('contact', {msg:'Email has been sent'});
+  //     console.log('Message sent: ' + info.response);
   // });
+
+
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);   
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      res.render('contact', {msg:'Email has been sent!'});
+  });
   });
 
-app.listen(3000, () => console.log('Server started...'));
+app.listen(3000, () => console.log('Server started... 🌐 localhost:3000'));
