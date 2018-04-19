@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
 const exphbs = require('express-handlebars');
+const csrf = require('csurf');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
 const app = express();
-
 const PORT = process.env.PORT || 3000;
 
 // View engine setup
@@ -16,15 +17,22 @@ app.set('view engine', 'handlebars');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Body Parser Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+var csrfProtection = csrf({ cookie: true });
+var parseForm = bodyParser.urlencoded({ extended: false });
+// app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.render('contact');
+// parse cookies
+// we need this because "cookie" is true in csrfProtection
+app.use(cookieParser());
+
+app.get('/', csrfProtection, (req, res) => {
+  res.render('contact', { csrfToken: req.csrfToken() });
 });
 
-app.post('/send', (req, res) => {
-  const output = `
+app.post('/send', parseForm, csrfProtection, (req, res) => {
+  const output = 
+  `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
     <ul>  
@@ -34,7 +42,8 @@ app.post('/send', (req, res) => {
     </ul>
     <h3>Message</h3>
     <p>${req.body.message}</p>
-  `;
+  `
+  ;
 
   //create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
@@ -56,9 +65,6 @@ app.post('/send', (req, res) => {
     }
   });     
 
-
-
-
   // setup email data with unicode symbols
   let mailOptions = {
       from: 'New Mail <krnassazn@gmail.com>', // sender address
@@ -68,16 +74,6 @@ app.post('/send', (req, res) => {
       html: output // html body
   };
 
-  //   // send mail with defined transport object
-  //   transporter.sendMail(mailOptions, function(error, info){
-  //     if(error){
-  //         return console.log(error);
-  //     }
-  //     console.log('Message sent: ' + info.response);
-  // });
-
-
-
   // send mail with defined transport object
   transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -85,9 +81,12 @@ app.post('/send', (req, res) => {
       }
       console.log('Message sent: %s', info.messageId);   
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+      // HERE YOU REDIRECT to /#page6
+      res.redirect('www.sangyeoplee.com/#page6');
       res.render('contact', {msg:'Email has been sent!'});
   });
-  });
+});
 
   app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

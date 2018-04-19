@@ -20,6 +20,8 @@
   "homepage": "https://github.com/rampagesang/portfolio#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "csurf": "^1.9.0",
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
     "nodemailer": "^4.6.4",
