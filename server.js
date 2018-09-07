@@ -51,14 +51,14 @@ app.post('/send', parseForm, csrfProtection, (req, res) => {
     // port: 587,
     // secure: false, // true for 465, false for other ports
     auth: {
-        xoauth2: xoauth2.createXOAuth2Generator({
-          user: 'krnassazn@gmail.com',
-          clientId: '44269745761-1k1k5hlbtfokhel7hf8r209pir4t782k.apps.googleusercontent.com',
-          clientSecret: 'e-Wc892pYuCiDpoNp2OCgF4b',
-          refreshToken: '1/KUReeaZdA0avOHtKUyRpBmLxc6UGA9EoBGd6yAA6h6U'
+        xoauth2: xoauth2.createXOAuenerator({
+          user: '',
+          clientId: '',
+          clientSecret: '',
+          refreshToken: ''
         }),
-        user: 'krnassazn@gmail.com', // generated ethereal user
-        pass: 'SGDX8NPO6'  // generated ethereal password
+        user: '', // generated ethereal user
+        pass: ''  // generated ethereal password
     },
     tls:{
       rejectUnauthorized:false
